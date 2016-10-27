@@ -5,7 +5,7 @@
     <div class="navbar-header col-sm-4">
 
       <!-- username and profpic -->
-      <a class="navbar-brand col-xs-10 " href="#/profile/{{id}}">
+      <a class="navbar-brand col-xs-10 " href="#/profile/{{userid}}">
         <!-- <img id="profile-brand" src="assets/default-user-avatar.png" alt="user pic" /> -->
         <!-- TODO: src pic -->
         <span>{{ name }} </span>
@@ -57,7 +57,7 @@
               <!-- <li><a href="">Account</a></li> -->
               <li><a data-toggle="modal" data-target="#changePass">Change Password</a></li>
               <li role="separator" class="divider"></li>
-              <li ng-click="logOutUser()"><a >Sign Out</a></li>
+              <li><a ng-click="logOutUser()">Sign Out</a></li>
             </ul>
 
           </li>
