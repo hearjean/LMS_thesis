@@ -13,8 +13,11 @@ angular.module('lmsApp')
       subject_list.push(result[i].subject);
     };
 
-    getSubjectInfo(subject_list);
+    return subject_list;
 
+  }).then(function(newRes) {
+    console.log(newRes)
+    getSubjectInfo(subject_list);
   });
 
   var class_list = [];
@@ -25,7 +28,7 @@ angular.module('lmsApp')
         class_list.push(schedResult)
       })
     }
-
+  // console.log(class_list);
     $scope.theSchedule = class_list;
   }
 

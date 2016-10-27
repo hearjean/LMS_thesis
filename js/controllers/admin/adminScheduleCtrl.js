@@ -28,6 +28,10 @@
       //
       // };
 
+      // $scope.setTeacher = function(teacherInfo) {
+      //   console.log(teacherInfo);
+      // };
+
       $scope.deactivate = function(id) {
         Schedule.deactivate(id);
       }
@@ -56,7 +60,7 @@
         // data.timeEnd = data.timeEnd.getTime();
         data.isActive = true;
         data.SY = String(yearNow) + " - " + String(yearNext) ;
-        
+
         Schedule.addSched(data);
         Schedule.addTeacherSched(data.Teacher, data);
 

@@ -4,7 +4,7 @@
     <i class="glyphicon glyphicon-search " role="button"></i>
     <input type="text" name="search" value="" class="form-control" placeholder="search files" ng-model="searchFiles">
   </section>
-  <h3>Uploaded Files</h3>
+  <h3>Files</h3>
   <br>
   <div class="" ng-repeat="sched in theSchedule | filter: searchFiles">
     <h1 >{{sched.Subject}}</h1>

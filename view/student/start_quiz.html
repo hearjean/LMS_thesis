@@ -10,7 +10,6 @@
   <br><br>
   <h3><b>Deadline: </b>7:00 pm</h3>
   <br><br>
-  <input type="button" ng-click="start(qdetails.$id)"  class="btn btn-success btn-lg" value="Start">
-   <!-- ng-disabled="isAnswered" -->
+  <input type="button" ng-click="start(qdetails.$id)"  class="btn btn-success btn-lg" ng-disabled="isAnswered" value="Start">
   <span ng-show="isAnswered">You are done with this quiz</span>
 </div>

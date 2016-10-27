@@ -9,7 +9,7 @@ angular.module('lmsApp')
     classlist.$loaded().then(function(result) {
       $scope.id =  result[$routeParams.id].$id;
       console.log($scope.id);
-      quiz($scope.id)
+      quiz($scope.id);
     })
 
     function quiz(id) {

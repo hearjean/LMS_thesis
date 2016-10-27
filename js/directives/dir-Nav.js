@@ -7,7 +7,7 @@ angular.module('lmsApp')
     var id = firebase.auth().currentUser.uid;
 
     scope.logOutUser = function() {
-      $firebaseAuth().$signOut();
+      firebase.auth().signOut();
       $location.path('/');
 
       firebase.auth().onAuthStateChanged(function(user) {
@@ -34,27 +34,33 @@ angular.module('lmsApp')
     };
 
     // scope.utype_dash;
-    scope.utypePath;
+    // scope.utypePath;
     (function typeToPath() {
       userTypeData = LoggedInUser.getUsertype();
 
       if (userTypeData == "student") {
-        setUtype_Path("#/student_page");
+        scope.utypePath = "#/student_page";
       }else if (userTypeData == "teacher") {
-        setUtype_Path("#/teacher/home");
+        scope.utypePath = "#/teacher/home";
       }
-    })()
 
-    function setUtype_Path(path) {
-      scope.utypePath = path;
-    }
+      console.log(scope.utypePath);
+    })()
+    //
+    // function setUtype_Path(path) {
+    //   scope.utypePath = path;
+    // }
 
 
     function getNewPath() {
       return utypePath;
     }
 
+    scope.$watch('utypePath', function() {
+      
+    });
 
+    scope.path = '#/profile/' + id;
     scope.name = firebase.auth().currentUser.displayName;
     scope.id = id;
 

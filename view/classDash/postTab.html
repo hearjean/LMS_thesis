@@ -1,10 +1,10 @@
 <div>
   <div class="panel panel-default notif col-md-3">
     <div class="panel-heading">
-      <h3 class="panel-title">Notifications</h3>
+      <h3 class="panel-title">Quizzes</h3>
     </div>
     <div class="panel-body">
-      <div>Quizzes<hr>
+      <div>
         <div ng-repeat="quiz in Quiz" ng-show="quiz.q_subjectID == schedID.$id">
           <ul>
             <li><a href="#/start_quiz/{{quiz.$id}}" >{{quiz.q_title}}</a></li><hr>
