@@ -57,13 +57,20 @@ angular.module('lmsApp')
       answerList.total = answerList.length;
       Answers.addDone(answerList);
 
+      var details = {
+        subjectName: answerList.subject_name,
+        subjectID: answerList.subject,
+        quiz_name: answerList.quiz_name,
+        quizId: answerList.quiz
+      };
+      Achievement.addAchievment(answerList.score, answerList.total, details);
+
       alert("your score is: " + counter + '/' + answerList.length);
       $location.path('student_page');
     });
 
-
-
   }
+
 
   $scope.checkTF =function() {
 
@@ -112,6 +119,15 @@ angular.module('lmsApp')
       answerList.score = counter;
       answerList.total = answerList.length;
       Answers.addDone(answerList);
+
+
+      var details = {
+        subjectName: answerList.subject_name,
+        subjectID: answerList.subject,
+        quiz_name: answerList.quiz_name,
+        quizId: answerList.quiz
+      };
+      Achievement.addAchievment(answerList.score, answerList.total, details);
 
       alert("your score is: " + counter + '/' + answerList.length);
       $location.path('student_page');

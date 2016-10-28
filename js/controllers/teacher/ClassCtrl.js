@@ -5,7 +5,7 @@ angular.module('lmsApp')
   $scope.searchClass = '';
   $scope.DspClass = Class.getClass();
   $scope.id = firebase.auth().currentUser;
-  
+
 
 
 }])

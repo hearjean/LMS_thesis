@@ -14,7 +14,7 @@ angular.module('lmsApp')
       scope.utypePath = "#/teacher/home";
     }
 
-    console.log(scope.utypePath);
+  
 
     scope.logOutUser = function() {
       firebase.auth().signOut();
