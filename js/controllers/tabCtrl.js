@@ -47,6 +47,12 @@ function ($scope, Questions, Events, Subjects,$firebaseArray, $firebaseObject, A
 
   $scope.theEvents = Events.getEvents();
   $scope.theQizzes = Questions.getQuizzes();
+
+  var achRef = firebase.database().ref("users").child(firebase.auth().currentUser.uid).child("achievements");
+  var achArray = $firebaseArray(achRef);
+  achArray.$loaded().then(function(result) {
+    $scope.Achievements = result;
+  });
   // $scope.theResoures = Files.getFiles(sched.resources);
   // $scope.fies = Files.getFile();
 

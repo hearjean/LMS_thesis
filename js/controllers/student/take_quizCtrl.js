@@ -1,5 +1,5 @@
 angular.module('lmsApp')
-.controller('take_quizCtrl', ['$scope', 'Questions', 'Answers','$routeParams','$location', "$firebaseObject", function ($scope, Questions, Answers, $routeParams, $location, $firebaseObject) {
+.controller('take_quizCtrl', ['$scope', 'Questions', 'Answers','$routeParams','$location', "$firebaseObject", 'Achievement',function ($scope, Questions, Answers, $routeParams, $location, $firebaseObject, Achievement) {
 
   $scope.questions = Questions.getQuestions($routeParams.id);
   var questions = $scope.questions;
@@ -65,6 +65,7 @@ angular.module('lmsApp')
       };
       Achievement.addAchievment(answerList.score, answerList.total, details);
 
+    }).then(function() {
       alert("your score is: " + counter + '/' + answerList.length);
       $location.path('student_page');
     });
@@ -129,6 +130,7 @@ angular.module('lmsApp')
       };
       Achievement.addAchievment(answerList.score, answerList.total, details);
 
+    }).then(function() {
       alert("your score is: " + counter + '/' + answerList.length);
       $location.path('student_page');
     });

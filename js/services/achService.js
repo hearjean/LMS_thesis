@@ -7,7 +7,7 @@ angular.module('lmsApp')
       console.log(achObj);
       var achRef = firebase.database().ref("users").child(firebase.auth().currentUser.uid).child("achievements");
       var achObj = $firebaseArray(achRef);
-
+      console.log("achievements");
       details.date = Math.floor(Date.now()/1000);
       achObj.$add(details);
     }
