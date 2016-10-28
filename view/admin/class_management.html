@@ -24,7 +24,8 @@
           <!-- TEACHER -->
           <div class="col-md-3" ng-class="{ 'has-error' : schedForm.teacher.$invalid && schedForm.teacher.$touched }">
             <label>Teacher:</label>
-            <select class="form-control" name="teacher" placeholder="Teacher" required ng-model="sched.Teacher">
+            <select class="form-control" name="teacher" placeholder="Teacher" required ng-model="sched.Teacher" >
+              <!-- ng-change="setTeacher(teacher)" -->
               <option disabled selected value="">Select one</option>
               <option ng-repeat="teacher in theTeachers | filter:{'utype':  'teacher', isActive: true}"
               value="{{teacher.$id}}">{{teacher.firstname}} {{teacher.lastname}}</option>

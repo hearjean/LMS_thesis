@@ -11,7 +11,7 @@
 
 
   <!-- TODO: include to all class dash-->
-  <div class="pull-right" style="
+  <!-- <div class="pull-right" style="
     position: relative;
     width: 100%;
     height: 60px;
@@ -21,7 +21,7 @@
       <h2>content</h2>
 
     </div>
-  </div>
+  </div> -->
 
   <div class="pull-right col-md-11" >
 
@@ -37,6 +37,7 @@
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Email</th>
+            <!-- <th ng-repeat="q in quiz | filter:{q_subjectID:id }" data-toggle="tooltip" title="Hooray!">Quiz {{$index + 1}}</th> -->
             <th>Action</th>
           </tr>
         </thead>
@@ -45,7 +46,7 @@
             <td>{{student.fname}}</td>
             <td>{{student.lname}}</td>
             <td>{{student.email}}</td>
-
+            <!-- <td ng-repeat="q in quiz | filter:{q_subjectID:id }"></td> -->
             <td>
               <button type="button" class="btn btn-danger" ng-click="removeStudent(student.s_id)">Remove</button>
             </td>
@@ -57,3 +58,9 @@
   </div>
   <div ng-include src="'components/partials/classnavbar.html'">  </div>
 </div>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>

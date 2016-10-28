@@ -4,7 +4,7 @@
     <i class="glyphicon glyphicon-search " role="button"></i>
     <input type="text" name="search" value="" class="form-control" placeholder="search files" ng-model="searchFiles">
   </section>
-  <h3>Uploaded Files</h3>
+  <h3>Files</h3>
   <br>
   <div class="" ng-repeat="sched in theSchedule | filter: searchFiles">
     <h1 >{{sched.Subject}}</h1>
@@ -19,7 +19,7 @@
       <tr ng-repeat="file in sched.resources">
         <td>{{file.name}}</td>
         <!-- <td>June 5 2009</td> -->
-        <td>{{file.size}}</td>
+        <td>{{file.size / 1000}} mb</td>
         <td>
           <a type="button" class="glyphicon glyphicon-download-alt icon" role="button" style="color:rgb(76, 143, 231);" data-toggle="tooltip" title="download" href="{{file.url}}" target="_blank"></a>
         </td>

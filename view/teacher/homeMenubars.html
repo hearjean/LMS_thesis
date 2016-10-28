@@ -29,7 +29,7 @@
               <p>
                 {{slide.description}}<br>
                 {{ slide.venue}} <br>
-                {{ slide.startEvent | date:'MMM d, y h:mm:ss a'}} - {{slide.endEvent | date:'MMM d, y h:mm:ss a'}}
+                {{ slide.startEvent | date:'MMM d, y h:mm a'}} - {{slide.endEvent | date:'MMM d, y h:mm a'}}
               </p>
             </div>
           </div>
@@ -48,16 +48,21 @@
           <div class="panel-body" >
             <div class="col-md-10">
               <input type="text" class="form-control" placeholder="Your Task" name="task.desc" ng-model="task.desc">
+              <input type="datetime-local" name="deadline" min="{{ Date.now() | date: 'yyyy-MM-ddTHH:mm'}}" ng-model="task.deadline" class="form-control">
 
             </div>
             <button type="submit" class="btn btn btn-primary" ng-click="addTodos(task)">Add</button>
 
-
             <div class="container-fluid">
               <ul>
+                <br><br>
                 <li ng-repeat="todo in theTodos">
-                  {{todo.desc}}
+
+                  <b>{{todo.desc}}</b>
+
+                  <h6>Deadline: {{todo.deadline * 1000 | date: 'MMM d, y h:mm a'}}
                   <a class="btn-link btn" ng-click="deleteTodo(todo.$id)">&times;</a>
+                  </h6>
                 </li>
               </ul>
             </div>

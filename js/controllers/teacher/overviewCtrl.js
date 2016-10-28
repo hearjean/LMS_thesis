@@ -1,6 +1,7 @@
 angular.module('lmsApp')
 .controller( 'overviewCtrl', ['$scope', 'Todo', 'Events', '$firebaseArray',function($scope, Todo, Events, $firebaseArray) {
 
+
   Todo.setUID(firebase.auth().currentUser.uid);
   $scope.theEvents = Events.getEvents();
 
@@ -12,6 +13,7 @@ angular.module('lmsApp')
   };
 
   $scope.addTodos = function(task) {
+    task.deadline = Math.floor(task.deadline/1000);
     Todo.addTodo(task);
     $scope.task = {desc: null};
   };
