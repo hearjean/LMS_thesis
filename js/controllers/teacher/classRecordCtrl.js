@@ -1,9 +1,23 @@
 angular.module('lmsApp')
-  .controller('classRecordCtrl', ['$scope', '$location', 'Users', '$firebaseArray', '$routeParams', '$firebaseObject', 'Class',function($scope, $location, Users, $firebaseArray, $routeParams, $firebaseObject, Class){
+  .controller('classRecordCtrl', ['$scope', '$location', 'Users', '$firebaseArray', '$routeParams', '$firebaseObject', 'Class', 'Questions',
+  function($scope, $location, Users, $firebaseArray, $routeParams, $firebaseObject, Class, Questions){
 
     $scope.classID = $routeParams.id;
-
     $scope.users = Users.getUsers();
+    // $scope.quiz = Questions.getQuizzes();
+    var classlist = Class.getClass();
+    classlist.$loaded().then(function(result) {
+      $scope.id =  result[$routeParams.id].$id;
+      console.log($scope.id);
+      quiz($scope.id);
+    })
+
+    function quiz(id) {
+      var quizRef = firebase.database().ref("quiz").orderByChild("q_subjcectID").startAt(id).endAt(id);
+      $firebaseArray(quizRef).$loaded().then(function(result) {
+        console.log(result);
+      });
+    }
 
     //checkbox
     $scope.selection = [];
@@ -70,8 +84,10 @@ angular.module('lmsApp')
     };
 
     $scope.removeStudent = function(id){
-
       Class.removeStudent(id, $routeParams.id);
+      location.reload();
     }
+
+
 
 }]);

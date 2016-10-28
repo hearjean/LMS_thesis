@@ -4,8 +4,21 @@ angular.module('lmsApp')
 
 
   var linker = function(scope) {
+    var id = firebase.auth().currentUser.uid;
+
+    userTypeData = LoggedInUser.getUsertype();
+
+    if (userTypeData == "student") {
+      scope.utypePath = "#/student_page";
+    }else if (userTypeData == "teacher") {
+      scope.utypePath = "#/teacher/home";
+    }
+
+  
+
     scope.logOutUser = function() {
-      $firebaseAuth().$signOut();
+      firebase.auth().signOut();
+      console.log("signing out");
       $location.path('/');
 
       firebase.auth().onAuthStateChanged(function(user) {
@@ -32,29 +45,35 @@ angular.module('lmsApp')
     };
 
     // scope.utype_dash;
-    scope.utypePath;
+    // scope.utypePath;
     (function typeToPath() {
-      userTypeData = LoggedInUser.getUsertype();
-
-      if (userTypeData == "student") {
-        setUtype_Path("#/student_page");
-      }else if (userTypeData == "teacher") {
-        setUtype_Path("#/teacher/home");
-      }
+      // userTypeData = LoggedInUser.getUsertype();
+      //
+      // if (userTypeData == "student") {
+      //   scope.utypePath = "#/student_page";
+      // }else if (userTypeData == "teacher") {
+      //   scope.utypePath = "#/teacher/home";
+      // }
+      //
+      // console.log(scope.utypePath);
     })()
-
-    function setUtype_Path(path) {
-      scope.utypePath = path;
-    }
+    //
+    // function setUtype_Path(path) {
+    //   scope.utypePath = path;
+    // }
 
 
     function getNewPath() {
       return utypePath;
     }
 
+    scope.$watch('utypePath', function() {
 
+    });
+
+    scope.path = '#/profile/' + id;
     scope.name = firebase.auth().currentUser.displayName;
-    scope.id = firebase.auth().currentUser.uid;
+    scope.userid = id;
 
     // scope.NotifNum = 3;
 

@@ -24,19 +24,19 @@ Maintain the following;
 
   - [x]  1.2.  Subjects;
 
-  - [ ]  1.3.  Sections;
+  - [x]  1.3.  Sections;
 
-  - [ ] 1.4.  Uploaded resources;
+  - [x] 1.4.  Uploaded resources;
 
-    - [ ] 1.4.1.  PDF;
+    - [x] 1.4.1.  PDF;
 
-    - [ ] 1.4.2.  Word Document;
+    - [x] 1.4.2.  Word Document;
 
-    - [ ] 1.4.3.  PowerPoint;
+    - [x] 1.4.3.  PowerPoint;
 
-    - [ ] 1.4.4.  Zip;
+    - [x] 1.4.4.  Zip;
 
-    - [ ] 1.4.5. Spreadsheet;
+    - [x] 1.4.5. Spreadsheet;
 
   - [x] 1.5.  Forum;
 
@@ -115,17 +115,17 @@ Maintain the following;
 
       - [x] 1.5.2. Multiple Choice;
 
-    - [ ] 1.6.  Uploaded and download resources;
+    - [x] 1.6.  Uploaded and download resources;
 
-      - [ ] 1.6.1.  PDF;
+      - [x] 1.6.1.  PDF;
 
-      - [ ] 1.6.2.  Word Document;
+      - [x] 1.6.2.  Word Document;
 
-      - [ ] 1.6.3.  PowerPoint;
+      - [x] 1.6.3.  PowerPoint;
 
-      - [ ] 1.6.4.  Zip;
+      - [x] 1.6.4.  Zip;
 
-      - [ ] 1.6.5.  Spreadsheet;
+      - [x] 1.6.5.  Spreadsheet;
 
   - [x] 1.7.  Forum;
 
@@ -154,9 +154,9 @@ Monitor the following:
 
     - [x] 2.3.3.  Assessment;
 
-    - [x] 2.3.4.  Comments;
+    - [ ] 2.3.4.  Comments;
 
-    - [x] 2.3.5.  To do list;  and
+    - [ ] 2.3.5.  To do list;  and
 
 
  

@@ -11,9 +11,9 @@
           {{score | json}}
         </pre>
       </td> -->
-      <td>{{score.subject}}</td>
-      <td>{{score.quiz}}</td>
-      <td>{{score.submitted * 1000| date:'MMM d, y h:mm:ss a'}}</td>
+      <td>{{score.subject_name}}</td>
+      <td>{{score.quiz_name}}</td>
+      <td>{{score.submitted * 1000| date:'MMM d, y h:mm a'}}</td>
       <td
         ng-class="{success: {{score.score}} >= {{score.total}} * 0.6,
         danger: {{score.score}} < {{score.total}} * 0.6 }">

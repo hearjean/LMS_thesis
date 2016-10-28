@@ -45,6 +45,7 @@ angular.module('lmsApp')
             data.name = details.name;
             data.size = details.size;
             data.type = details.type;
+            data.uploadedOn = Math.floor(Date.now()/1000);
 
             //insert into /schedule/resources
             var ref = firebase.database().ref('/schedule');
