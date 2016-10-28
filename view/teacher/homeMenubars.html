@@ -29,7 +29,7 @@
               <p>
                 {{slide.description}}<br>
                 {{ slide.venue}} <br>
-                {{ slide.startEvent | date:'MMM d, y h:mm:ss a'}} - {{slide.endEvent | date:'MMM d, y h:mm:ss a'}}
+                {{ slide.startEvent | date:'MMM d, y h:mm a'}} - {{slide.endEvent | date:'MMM d, y h:mm a'}}
               </p>
             </div>
           </div>
@@ -59,7 +59,7 @@
                 <li ng-repeat="todo in theTodos">
 
                   <b>{{todo.desc}}</b>
-                  
+
                   <h6>Deadline: {{todo.deadline * 1000 | date: 'MMM d, y h:mm a'}}
                   <a class="btn-link btn" ng-click="deleteTodo(todo.$id)">&times;</a>
                   </h6>

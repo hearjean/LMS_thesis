@@ -38,7 +38,7 @@
         <ul>
           <li ng-repeat="test in theQizzes | filter:sched.$id">
             <a href="#/start_quiz/{{test.$id}}">{{test.q_title}} </a>
-            &#09; Date due: {{test.q_deadline * 1000 | date:'MMM d, y h:mm:ss a'}}
+            &#09; Date due: {{test.q_deadline * 1000 | date:'MMM d, y h:mm a'}}
           </li>
         </ul>
       </uib-accordion-body>
@@ -86,7 +86,7 @@
           <p>
             {{slide.description}}<br>
             Venue: {{ slide.venue}} <br>
-            Time: {{ slide.startEvent | date:'MMM d, y h:mm:ss a'}} - {{slide.endEvent | date:'MMM d, y h:mm:ss a'}}
+            Time: {{ slide.startEvent | date:'MMM d, y h:mm a'}} - {{slide.endEvent | date:'MMM d, y h:mm a'}}
           </p>
         </div>
       </div>

@@ -25,7 +25,7 @@ angular.module('lmsApp')
     for (var i = 0; i < list.length; i++) {
       var schedRef = firebase.database().ref('schedule').child(list[i]);
       $firebaseObject(schedRef).$loaded().then(function(schedResult) {
-        class_list.push(schedResult)
+        class_list.push(schedResult);
       })
     }
   // console.log(class_list);

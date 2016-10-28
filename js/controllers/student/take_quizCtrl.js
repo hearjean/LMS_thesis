@@ -1,10 +1,11 @@
 angular.module('lmsApp')
-.controller('take_quizCtrl', ['$scope', 'Questions', 'Answers','$routeParams','$location', function ($scope, Questions, Answers, $routeParams, $location) {
+.controller('take_quizCtrl', ['$scope', 'Questions', 'Answers','$routeParams','$location', "$firebaseObject", function ($scope, Questions, Answers, $routeParams, $location, $firebaseObject) {
 
   $scope.questions = Questions.getQuestions($routeParams.id);
   var questions = $scope.questions;
 
   $scope.answer = [];
+
 
   $scope.checkMC = function() {
 
@@ -42,17 +43,26 @@ angular.module('lmsApp')
     };
     Questions.addAnswered(answers,questions.$id);
 
+    var subjectRef = firebase.database().ref("schedule");
+    $firebaseObject(subjectRef).$loaded().then(function(result) {
+      var idReference = questions.q_subjectID;
+      answerList.subject_name = result[idReference].Subject;
+    }).then(function() {
+      //insert to student's account
+      answerList.submitted = Math.floor(Date.now()/1000);
+      answerList.subject = questions.q_subjectID;
+      answerList.quiz = questions.$id;
+      answerList.quiz_name = questions.q_title;
+      answerList.score = counter;
+      answerList.total = answerList.length;
+      Answers.addDone(answerList);
 
-    //insert to student's account
-    answerList.submitted = Math.floor(Date.now()/1000);
-    answerList.subject = questions.q_subjectID;
-    answerList.quiz = questions.$id;
-    answerList.score = counter;
-    answerList.total = answerList.length;
-    Answers.addDone(answerList);
+      alert("your score is: " + counter + '/' + answerList.length);
+      $location.path('student_page');
+    });
 
-    alert("your score is: " + counter + '/' + answerList.length);
-    $location.path('student_page');
+
+
   }
 
   $scope.checkTF =function() {
@@ -89,17 +99,24 @@ angular.module('lmsApp')
     };
     Questions.addAnswered(answers,questions.$id);
 
+    var subjectRef = firebase.database().ref("schedule");
+    $firebaseObject(subjectRef).$loaded().then(function(result) {
+      var idReference = questions.q_subjectID;
+      answerList.subject_name = result[idReference].Subject;
+    }).then(function() {
+      //insert to student's account
+      answerList.submitted = Math.floor(Date.now()/1000);
+      answerList.subject = questions.q_subjectID;
+      answerList.quiz = questions.$id;
+      answerList.quiz_name = questions.q_title;
+      answerList.score = counter;
+      answerList.total = answerList.length;
+      Answers.addDone(answerList);
 
-    //insert to student's account
-    answerList.submitted = Math.floor(Date.now()/1000);
-    answerList.subject = questions.q_subjectID;
-    answerList.quiz = questions.$id;
-    answerList.score = counter;
-    answerList.total = answerList.length;
-    Answers.addDone(answerList);
-
-    alert("your score is: " + counter + '/' + answerList.length);
+      alert("your score is: " + counter + '/' + answerList.length);
       $location.path('student_page');
+    });
+
   }
 
 }])
