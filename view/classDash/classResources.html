@@ -39,6 +39,7 @@
       &nbsp;&nbsp;
       <div class="form-group col-sm-1 push-down" >
         <input type="file" accept="application/pdf, application/msword, application/zip, application/mspowerpoint, application/powerpoint, image/png, application/excel, image/jpeg, image/gif" name="input-file-preview" dir-file-input="fileGetter"/>
+        Input remarks:<input type="text" ng-model="remarks" placeholder="Input remarks">
         <button type="button" class="btn btn-success " ng-click="upload()">
           <span class="glyphicon glyphicon-plus"></span> Upload
         </button>
@@ -54,8 +55,8 @@
           <!-- <th><span class="glyphicon glyphicon-unchecked"></span>Icon</th> -->
           <th>File Name</th>
           <th>File Size</th>
-          <!-- <th>Date Uploaded</th> -->
           <th>Action</th>
+          <th>Remarks</th>
         </tr>
       </thead>
       <tbody>
@@ -69,6 +70,7 @@
           <!-- <button data-toggle="tooltip" title="Rename" type="button" class="btn btn-info"><i class="fa fa-pencil"></i></button> -->
           <!-- <button data-toggle="tooltip" title="Delete" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button> -->
           </td>
+          <td>{{file.remarks}}</td>
         </tr>
 
       </tbody>

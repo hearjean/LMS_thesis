@@ -1,6 +1,6 @@
 angular.module('lmsApp')
 
-  .controller('ResourceCtrl', ['$scope', 'File', '$firebaseArray', '$routeParams',function($scope, File, $firebaseArray, $routeParams){
+  .controller('ResourceCtrl', ['$scope','File', '$firebaseArray', '$routeParams',function($scope, File, $firebaseArray, $routeParams){
 
     $scope.classID = $routeParams.id;
 
@@ -19,7 +19,7 @@ angular.module('lmsApp')
         var schedID = result[$routeParams.id].$id;
 
         var newref = ref1.child(schedID).child('resources');
-        var resource = $firebaseArray(newref);
+        var resource = $firebaseArray(newref)
         $scope.getDetails = resource;
       });
     })()
@@ -33,19 +33,31 @@ angular.module('lmsApp')
           var percent = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           $scope.percent = percent;
         },
+
+        // function setRemark(a){
+        //   ref.push({
+        //     remark = a.cont
+        //   });
+        // },
         function error(error) {
           alert(error);
         },
         function success() {
+
           File.getURL().then(function(snapshot) {
             var data = {};
             var details = File.getFileDetails();
+
 
             data.url = snapshot;
             data.name = details.name;
             data.size = details.size;
             data.type = details.type;
             data.uploadedOn = Math.floor(Date.now()/1000);
+            data.remarks = $scope.remarks;
+
+
+
 
             //insert into /schedule/resources
             var ref = firebase.database().ref('/schedule');
@@ -56,6 +68,7 @@ angular.module('lmsApp')
 
               var newref = ref.child(schedID).child('resources');
               var resource = $firebaseArray(newref);
+
 
               resource.$add(data);
               alert("Upload done!");
