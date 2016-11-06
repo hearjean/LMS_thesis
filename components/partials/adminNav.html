@@ -1,3 +1,6 @@
+<section ng-include src="'components/modals/changePass.html'"></section>
+<section ng-include src="'components/modals/addAdmin.html'"></section>
+
 <nav class="navbar navbar-custom" role="navigation">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -39,7 +42,7 @@
           <li class="nav-item" ng-class="{'navActive': location('#/admin/class_management')}">
             <a class="nav-link" href="#/admin/class_management">
               <span class="fa fa-clock-o"></span>
-              <span>Class management</span>
+              <span>Schedule</span>
             </a>
           </li>
 
@@ -77,11 +80,11 @@
           <span class="glyphicon glyphicon-cog"></span><span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-          <li class="nav-item" data-target="#changePass"><a>Change Password</a></li>
+
+          <li class="nav-item" data-target="#changePass" data-toggle="modal"><a>Change Password</a></li>
           <li class="nav-item"><a ng-click="logOutUser()">Sign Out</a></li>
         </ul>
       </li>
     </ul>
   </div>
 </nav>
-<section ng-include src="'components/modals/changePass.html'"></section>

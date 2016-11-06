@@ -1,7 +1,7 @@
 <dir-admin-nav></dir-admin-nav>
 
 <div class="container">
-    <h1 class="big-header">Class Management <small>{{filteredSchedules.length}}</small></h1>
+    <h1 class="big-header">Schedule <small>{{filteredSchedules.length}}</small></h1>
 </div>
 
 <div class="container">
@@ -55,9 +55,8 @@
         </div>
 
 
-
         <!-- TIME -->
-        <!-- <div class="row">
+        <div class="row">
 
           <div class="col-md-3" ng-class="{ 'has-error' : schedForm.start.$invalid && schedForm.start.$touched }">
             <label>Time Start:</label>
@@ -79,7 +78,7 @@
               <button type="button" class="btn btn-default" uib-btn-checkbox ng-model="sched.Days.fri">F</button>
             </div>
           </div>
-        </div> -->
+        </div>
 
 
         <button type="button" class=" others btn btn-success btn-lg pull-right "
@@ -125,13 +124,18 @@
           <span ng-show="sortType == 'Teacher' && !sortReverse" class="fa fa-caret-down"></span>
           <span ng-show="sortType == 'Teacher' && sortReverse" class="fa fa-caret-up"></span>
         </th>
-        <!-- <th>
+        <th>
           <a ng-click="sortType = 'timeStart'; sortReverse = !sortReverse">
             Time
           </a>
           <span ng-show="sortType == 'timeStart' && !sortReverse" class="fa fa-caret-down"></span>
           <span ng-show="sortType == 'timeStart' && sortReverse" class="fa fa-caret-up"></span>
-        </th> -->
+        </th>
+        <th>
+          <a ng-click="sortType = 'timeStart'; sortReverse = !sortReverse">
+            Days
+          </a>
+        </th>
         <th>
           <a ng-click="sortType = 'SY'; sortReverse = !sortReverse">
             School_year
@@ -156,7 +160,10 @@
         <td>{{sched.Section}}</td>
         <td>{{sched.Subject}}</td>
         <td>{{sched.Teacher}}</td>
-        <!-- <td>{{sched.timeStart | date: 'hh:mm a'}} - {{sched.timeEnd | date: 'hh:mm a'}}</td> -->
+        <td>{{sched.timeStart | date: 'hh:mm a'}} - {{sched.timeEnd | date: 'hh:mm a'}}</td>
+        <td>
+          <span ng-repeat="(key,val) in sched.Days" ng-show="val === true">{{key}}<br></span>
+        </td>
         <td>{{sched.SY}}</td>
         <td>{{sched.isActive}}</td>
         <td>

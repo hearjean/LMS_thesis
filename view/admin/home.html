@@ -2,16 +2,18 @@
 
 <div class="container">
     <h1 class="big-header">Users <small>{{filteredUsers.length}}</small></h1>
+    <input type="button" class="btn btn-info pull-right" data-target="#addAdmin" data-toggle="modal" value="Add admin">
 </div>
 
 <div class="container ">
   <div class="col-md-3 col-xs-12 admin-controls">
     <input type="search" ng-model="searchUsers" class="form-control" placeholder="Search">
   </div>
+
 </div>
 
 
-
+<section ng-include src="'components/modals/addAdmin.html'"></section>
 <div class="container table-outline">
   <table class="table table-striped table-hover table-responsive">
     <thead>

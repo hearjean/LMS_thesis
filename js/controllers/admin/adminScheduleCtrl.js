@@ -41,13 +41,13 @@
         Schedule.activate(id);
       }
 
-      // $scope.Days ={
-      //   mon: false,
-      //   tue: true,
-      //   wed: false,
-      //   thu: false,
-      //   fri: false
-      // }
+      $scope.Days ={
+        mon: false,
+        tue: true,
+        wed: false,
+        thu: false,
+        fri: false
+      }
       $scope.sched = {
         Section: null
       };
@@ -55,9 +55,9 @@
       $scope.insertSched = function(data) {
         var yearNow = new Date().getFullYear();
         var yearNext = yearNow + 1;
-        //set times to millisecond format
-        // data.timeStart = data.timeStart.getTime();
-        // data.timeEnd = data.timeEnd.getTime();
+        // set times to millisecond format
+        data.timeStart = data.timeStart.getTime();
+        data.timeEnd = data.timeEnd.getTime();
         data.isActive = true;
         data.SY = String(yearNow) + " - " + String(yearNext) ;
 

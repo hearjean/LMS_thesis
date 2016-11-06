@@ -1,0 +1,66 @@
+<!-- change password modal -->
+<div id="addAdmin" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Sign up new admin</h4>
+      </div>
+      <div class="modal-body">
+
+        <!-- form in modal -->
+        <form name="frmAddAdmin">
+
+          <!-- FIRSTNAME -->
+          <div class="form-group inner-addon left-addon"
+          ng-class="{ 'has-error' : reg_form.email.$invalid && !reg_form.email.$pristine }">
+            <label for="">Firstname</label>
+            <input type="text" name="fname" class="form-control" ng-model="formInfo.fname" placeholder="Firstname" required>
+            <p ng-show="reg_form.fname.$error.required && !reg_form.fname.$pristine" class="help-block">Firstname is required.</p>
+          </div>
+
+
+          <!-- LASTNAME -->
+          <div class="form-group inner-addon left-addon"
+          ng-class="{ 'has-error' : reg_form.email.$invalid && !reg_form.email.$pristine }">
+            <label for="">Lastname</label>
+            <input type="text" name="lname" class="form-control" ng-model="formInfo.lname" placeholder="Lastname" required>
+            <p ng-show="reg_form.lname.$error.required && !reg_form.lname.$pristine" class="help-block">Lastname is required.</p>
+          </div>
+
+          <!-- EMAIL -->
+          <div class="form-group inner-addon left-addon"
+          ng-class="{ 'has-error' : reg_form.email.$invalid && !reg_form.email.$pristine }">
+            <label for="">E-mail</label>
+            <input type="email" name="email" class="form-control" ng-model="formInfo.email" placeholder="Email" required>
+            <p ng-show="reg_form.email.$invalid && !reg_form.email.$pristine" class="help-block">Email is invalid.</p>
+            <p ng-show="reg_form.email.$error.required && !reg_form.email.$pristine" class="help-block">Email is required.</p>
+          </div>
+
+          <!-- PASSWORD -->
+          <div class="form-group inner-addon left-addon "
+          ng-class="{ 'has-error' : reg_form.password.$invalid && !reg_form.password.$pristine }">
+            <label for="">Password</label>
+            <input type="password" name="password" class="form-control" ng-model="formInfo.password" ng-minlength="8" placeholder="Password" required>
+            <p ng-show="reg_form.password.$error.minlength" class="help-block">Password too short.</p>
+            <p ng-show="reg_form.password.$error.required && !reg_form.password.$pristine" class="help-block">Password is required.</p>
+          </div>
+
+           <!-- CONFIRM PASSWORD -->
+          <div class="form-group inner-addon left-addon "
+          ng-class="{ 'has-error' : reg_form.ConfPass.$invalid && reg_form.ConfPass.$touched}">
+            <label for="">Confirm Password</label>
+            <input type="password" name="ConfPass" class="form-control" ng-model="formInfo.ConfPass" ng-pattern="formInfo.password" placeholder="Confirm Password" required>
+            <p ng-show="reg_form.ConfPass.$error.required && reg_form.ConfPass.$dirty" class="help-block">Confirmation of password is required.</p>
+            <p ng-show="reg_form.ConfPass.$error.pattern && reg_form.ConfPass.$dirty" class="help-block">Passwords do not match!</p>
+          </div>
+
+           <button type="submit" name="btnlogin" class="btn btn-success" ng-disabled="reg_form.$invalid" ng-click="addAdmin(formInfo)">SUBMIT</button>
+
+        </form>
+      </div>
+
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
